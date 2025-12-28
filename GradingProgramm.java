@@ -16,6 +16,7 @@ public class GradingProgramm {
 
 
         System.out.println("Welcome to the Grading tool , would you like to look for your grade?");
+        System.out.println("Choose 'Yes' or 'No' .");
         String answer = scanner.nextLine();
 
         if(answer.equals("Yes")){
