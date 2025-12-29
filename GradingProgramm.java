@@ -9,11 +9,7 @@ public class GradingProgramm {
 
     public static void main(String[] args) {
 
-        ArrayList<Student> gradesByCourse = new ArrayList<>();
         List<Student> students = studentsList();
-        List<GradesInCourses> gradeInMaths = mathsGrades();
-        List<GradesInCourses> gradeInEnglish = englishGrades();
-
 
         System.out.println("Welcome to the Grading tool , would you like to look for your grade?");
         System.out.println("Choose 'Yes' or 'No' .");
@@ -29,11 +25,16 @@ public class GradingProgramm {
             System.out.println("2 . English");
             System.out.println("3 . Average grade");
             String courseChoice = scanner.nextLine();
+
             for(Student student : students){
-                    if (student.firstname.equals(firstnameValidation) && student.lastname.equals(lastnameValidation) && courseChoice.equals(1)) {
-                        System.out.println("Your grade in Maths is " + gradeInMaths);
-                    } else {
-                        System.out.println("You are not on the list");
+                    if (student.firstname.equals(firstnameValidation) && student.lastname.equals(lastnameValidation) && courseChoice.equals("1")) {
+                       getMathsGrades(firstnameValidation , lastnameValidation);
+                       break;
+                    } else if(student.firstname.equals(firstnameValidation) && student.lastname.equals(lastnameValidation) && courseChoice.equals("2")) {
+                        getEnglishGrades(firstnameValidation , lastnameValidation);
+                        break;
+                    }else if(student.firstname.equals(firstnameValidation) && student.lastname.equals(lastnameValidation) && courseChoice.equals("3")){
+                        averageGradeCalculator(firstnameValidation , lastnameValidation);
                         break;
                     }
             }
@@ -54,24 +55,49 @@ public class GradingProgramm {
     public static List<GradesInCourses> mathsGrades(){
         ArrayList<GradesInCourses> mathsStudents = new ArrayList<>();
         mathsStudents.add(new GradesInCourses("Raul" , "Vasile" , 3.0));
+        mathsStudents.add(new GradesInCourses("Miruna" , "Paun" , 2.5));
+        mathsStudents.add(new GradesInCourses("Rares" , "Vasile" , 1.7));
+        mathsStudents.add(new GradesInCourses("Gucci" , "Mane" , 4.5));
         return mathsStudents;
     }
 
     public static List<GradesInCourses> englishGrades(){
-        ArrayList<GradesInCourses> studentGrades = new ArrayList<>();
-        studentGrades.add(new GradesInCourses("Raul" , "Vasile" , 2.0));
-        return studentGrades;
+        ArrayList<GradesInCourses> englishStudents = new ArrayList<>();
+        englishStudents.add(new GradesInCourses("Raul" , "Vasile" , 2.0));
+        englishStudents.add(new GradesInCourses("Miruna" , "Paun" , 1.5));
+        englishStudents.add(new GradesInCourses("Rares" , "Vasile" , 1.3));
+        englishStudents.add(new GradesInCourses("Gucci" , "Mane" , 1.0));
+        return englishStudents;
     }
 
-    public static double averageGradeCalculator(){
-        List<GradesInCourses> mathsGrades = mathsGrades();
-        List<GradesInCourses> englishGrades = englishGrades();
-        for(GradesInCourses studentMaths : mathsGrades){
-            for(GradesInCourses studentEnglish : englishGrades){
-                double averageGrade = (studentMaths.gradeInCourse + studentEnglish.gradeInCourse) / 2 ;
-                return averageGrade;
+    public static void averageGradeCalculator(String first , String last){
+        for(GradesInCourses studentMaths : mathsGrades()){
+            for(GradesInCourses studentEnglish : englishGrades()){
+                if(studentMaths.firstname.equals(first) && studentEnglish.firstname.equals(first) &&
+                   studentMaths.lastname.equals(last) && studentEnglish.lastname.equals(last)) {
+                    double averageGrade = (studentMaths.gradeInCourse + studentEnglish.gradeInCourse) / 2;
+                    System.out.println("Your average grade is " + averageGrade);
+                    return;
+                }
             }
         }
-       return averageGradeCalculator();
+    }
+
+    public static void getMathsGrades(String first , String last){
+        for(GradesInCourses studentGrade : mathsGrades()){
+            if(studentGrade.firstname.equals(first) && studentGrade.lastname.equals(last)){
+                System.out.println("Your grade is " + studentGrade.gradeInCourse);
+                return;
+            }
+        }
+    }
+
+    public static void getEnglishGrades(String first , String last){
+        for(GradesInCourses studentGrade : englishGrades()){
+            if(studentGrade.firstname.equals(first) && studentGrade.lastname.equals(last)){
+                System.out.println("Your grade in english is " + studentGrade.gradeInCourse);
+                return;
+            }
+        }
     }
 }
