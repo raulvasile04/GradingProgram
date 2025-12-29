@@ -1,6 +1,6 @@
 package school;
 
-/** Public class that stores Student data . Used in the GradesProgram **/
+/** Public class that stores Student data . Used in the GradingProgram **/
 public class Student {
 
     public String firstname;
