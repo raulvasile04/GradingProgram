@@ -24,10 +24,7 @@ method that lets you register yourself as a student .
 
 ### Usage 
 - Enter yes when asked if you want to look for a students grade
-- Enter one of the students first- and lastname
-- Choose a course :
-- 1. Maths
-  2. English
-  3. Average grade
+- Enter one of the students first- and lastname "Find Students list in the "Grades" class :
+- Choose a course , you have 7 course options + an average grade calculator in the last position
 - The program will display the requested grade in the terminal
 
