@@ -5,101 +5,110 @@ import java.util.List;
 
 public class Grades {
 
-    List<Student> students = new ArrayList<>();
+    private List<Student> students = new ArrayList<>();
 
-    public Grades (){
-        Student student1 = new Student("Raul" , "Vasile" , 21);
-        Student student2 = new Student("Rares" , "Vasile" , 13);
-        Student student3 = new Student("Jon" , "Jones", 16);
-        Student student4 = new Student("John" , "Cena" , 20);
-        Student student5 = new Student("Mamma" , "Mia" , 18);
-        Student student6 = new Student("Leo" , "Messi" , 18);
-
-        students.add(student1);
-        students.add(student2);
-        students.add(student3);
-        students.add(student4);
-        students.add(student5);
-        students.add(student6);
-
-        MathsGrades();
-        EnglishGrades();
-        ScienceGrades();
-        PE();
-        Geography();
-        Phisics();
-        History();
+    public Grades() {
+        createStudents();
+        assignGrades();
     }
 
-    public void MathsGrades(){
-        students.get(0).getGrades().addGrade("Maths" , 3);
-        students.get(1).getGrades().addGrade("Maths" , 2);
-        students.get(2).getGrades().addGrade("Maths" , 1);
-        students.get(3).getGrades().addGrade("Maths" , 4);
-        students.get(4).getGrades().addGrade("Maths" , 5);
-        students.get(5).getGrades().addGrade("Maths" , 3);
+    private void createStudents() {
+        students.add(new Student("John", "Doe", 21));
+        students.add(new Student("Miles", "Morales", 13));
+        students.add(new Student("Biggie", "Smalls", 16));
+        students.add(new Student("John", "Cena", 20));
+        students.add(new Student("Mamma", "Mia", 18));
+        students.add(new Student("Leo", "Messi", 18));
     }
 
-    public void EnglishGrades(){
-        students.get(0).getGrades().addGrade("English" , 3);
-        students.get(1).getGrades().addGrade("English" , 2);
-        students.get(2).getGrades().addGrade("English" , 5);
-        students.get(3).getGrades().addGrade("English" , 4);
-        students.get(4).getGrades().addGrade("English" , 6);
-        students.get(5).getGrades().addGrade("English" , 1);
+    private void assignGrades() {
+        assignMathGrades();
+        assignEnglishGrades();
+        assignScienceGrades();
+        assignPEGrades();
+        assignGeographyGrades();
+        assignPhysicsGrades();
+        assignHistoryGrades();
     }
 
-    public void ScienceGrades(){
-        students.get(0).getGrades().addGrade("Science" , 1);
-        students.get(1).getGrades().addGrade("Science" , 4);
-        students.get(2).getGrades().addGrade("Science" , 3);
-        students.get(3).getGrades().addGrade("Science" , 2);
-        students.get(4).getGrades().addGrade("Science" , 1);
-        students.get(5).getGrades().addGrade("Science" , 6);
+    private void assignGrade(int studentIndex, String course, int grade) {
+        students.get(studentIndex).getGrades().addGrade(course, grade);
     }
 
-    public void Phisics(){
-        students.get(0).getGrades().addGrade("Phisics" , 2);
-        students.get(1).getGrades().addGrade("Phisics" , 1);
-        students.get(2).getGrades().addGrade("Phisics" , 6);
-        students.get(3).getGrades().addGrade("Phisics" , 3);
-        students.get(4).getGrades().addGrade("Phisics" , 2);
-        students.get(5).getGrades().addGrade("Phisics" , 1);
+    private void assignMathGrades() {
+        assignGrade(0, "Math", 3);
+        assignGrade(1, "Math", 2);
+        assignGrade(2, "Math", 1);
+        assignGrade(3, "Math", 4);
+        assignGrade(4, "Math", 5);
+        assignGrade(5, "Math", 3);
     }
 
-    public void History(){
-        students.get(0).getGrades().addGrade("History" , 1);
-        students.get(1).getGrades().addGrade("History" , 3);
-        students.get(2).getGrades().addGrade("History" , 2);
-        students.get(3).getGrades().addGrade("History" , 3);
-        students.get(4).getGrades().addGrade("History" , 4);
-        students.get(5).getGrades().addGrade("History" , 1);
+    private void assignEnglishGrades() {
+        assignGrade(0, "English", 3);
+        assignGrade(1, "English", 2);
+        assignGrade(2, "English", 5);
+        assignGrade(3, "English", 4);
+        assignGrade(4, "English", 6);
+        assignGrade(5, "English", 1);
     }
 
-    public void Geography(){
-        students.get(0).getGrades().addGrade("Geography" , 2);
-        students.get(1).getGrades().addGrade("Geography" , 1);
-        students.get(2).getGrades().addGrade("Geography" , 4);
-        students.get(3).getGrades().addGrade("Geography" , 3);
-        students.get(4).getGrades().addGrade("Geography" , 2);
-        students.get(5).getGrades().addGrade("Geography" , 2);
+    private void assignScienceGrades() {
+        assignGrade(0, "Science", 1);
+        assignGrade(1, "Science", 4);
+        assignGrade(2, "Science", 3);
+        assignGrade(3, "Science", 2);
+        assignGrade(4, "Science", 1);
+        assignGrade(5, "Science", 6);
     }
 
-    public void PE(){
-        students.get(0).getGrades().addGrade("PE" , 1);
-        students.get(1).getGrades().addGrade("PE" , 1);
-        students.get(2).getGrades().addGrade("PE" , 1);
-        students.get(3).getGrades().addGrade("PE" , 1);
-        students.get(4).getGrades().addGrade("PE" , 1);
-        students.get(5).getGrades().addGrade("PE" , 1);
+    private void assignPhysicsGrades() {
+        assignGrade(0, "Physics", 2);
+        assignGrade(1, "Physics", 1);
+        assignGrade(2, "Physics", 6);
+        assignGrade(3, "Physics", 3);
+        assignGrade(4, "Physics", 2);
+        assignGrade(5, "Physics", 1);
     }
 
-    public Student findStudent(String firstname , String lastname){
-        for(Student s : students){
-            if(s.firstname.equals(firstname) && s.lastname.equals(lastname)){
-                return s;
+    private void assignHistoryGrades() {
+        assignGrade(0, "History", 1);
+        assignGrade(1, "History", 3);
+        assignGrade(2, "History", 2);
+        assignGrade(3, "History", 3);
+        assignGrade(4, "History", 4);
+        assignGrade(5, "History", 1);
+    }
+
+    private void assignGeographyGrades() {
+        assignGrade(0, "Geography", 2);
+        assignGrade(1, "Geography", 1);
+        assignGrade(2, "Geography", 4);
+        assignGrade(3, "Geography", 3);
+        assignGrade(4, "Geography", 2);
+        assignGrade(5, "Geography", 2);
+    }
+
+    private void assignPEGrades() {
+        assignGrade(0, "PE", 1);
+        assignGrade(1, "PE", 1);
+        assignGrade(2, "PE", 1);
+        assignGrade(3, "PE", 1);
+        assignGrade(4, "PE", 1);
+        assignGrade(5, "PE", 1);
+    }
+
+    public Student findStudent(String firstName, String lastName) {
+        for (Student student : students) {
+            if (student.getFirstName().equalsIgnoreCase(firstName)
+                    && student.getLastName().equalsIgnoreCase(lastName)) {
+                return student;
             }
         }
         return null;
+    }
+
+    public List<Student> getStudents() {
+        return students;
     }
 }

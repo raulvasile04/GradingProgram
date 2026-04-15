@@ -1,21 +1,31 @@
 package school;
 
-/** Public class that stores Student data . Used in the GradingProgram **/
 public class Student {
-
-    public String firstname;
-    public String lastname;
-    public int age;
+    private String firstName;
+    private String lastName;
+    private int age;
     private GradesInCourses grades;
 
-    public Student(String firstname , String lastname, int age) {
-        this.firstname = firstname;
-        this.lastname = lastname;
+    public Student(String firstName, String lastName, int age) {
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.age = age;
         this.grades = new GradesInCourses();
     }
 
-    public GradesInCourses getGrades(){
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public GradesInCourses getGrades() {
         return grades;
     }
 }
